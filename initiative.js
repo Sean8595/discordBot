@@ -58,67 +58,67 @@ class Bracket {
       this.isStarted = true;
     }
   
-    declareWinner(player = '') {
-      if (!player) {
-        console.log('Invalid player');
-      }
-      if (player !== 'BYE') {
-        this.bracket[this.currentRoundIdx].forEach((round) => {
-            if (round.player1.name === player) {
-              if (round.completed) {
-                this.client.channels.find(x => x.name === this.channelName).send('Winner already declared for the current round');
-              } else {
-                round.player1.winner = true;
-                round.completed = true;
-              }
-            }
+    // declareWinner(player = '') {
+    //   if (!player) {
+    //     console.log('Invalid player');
+    //   }
+    //   if (player !== 'BYE') {
+    //     this.bracket[this.currentRoundIdx].forEach((round) => {
+    //         if (round.player1.name === player) {
+    //           if (round.completed) {
+    //             this.client.channels.find(x => x.name === this.channelName).send('Winner already declared for the current round');
+    //           } else {
+    //             round.player1.winner = true;
+    //             round.completed = true;
+    //           }
+    //         }
   
-            if (round.player2.name === player) {
-              if (round.completed) {
-                console.log('Winner already declared for the current round');
-              } else {
-                round.player2.winner = true;
-                round.completed = true;
-              }
-            }
-        });
-      }
+    //         if (round.player2.name === player) {
+    //           if (round.completed) {
+    //             console.log('Winner already declared for the current round');
+    //           } else {
+    //             round.player2.winner = true;
+    //             round.completed = true;
+    //           }
+    //         }
+    //     });
+    //   }
   
-      // If everyone has competed start next round
-      const isCompleted = this.checkRoundEnd();
+    //   // If everyone has competed start next round
+    //   const isCompleted = this.checkRoundEnd();
   
-      if (isCompleted && this.bracket[this.currentRoundIdx].length === 1) {
-        this.isFinished = true;
-        this.client.channels.find(x => x.name === this.channelName).send(`Congrats to our winner ${player} 🥇🥇🥇!!!`);
-      }
+    //   if (isCompleted && this.bracket[this.currentRoundIdx].length === 1) {
+    //     this.isFinished = true;
+    //     this.client.channels.find(x => x.name === this.channelName).send(`Congrats to our winner ${player} 🥇🥇🥇!!!`);
+    //   }
   
-      if (isCompleted) {
+    //   if (isCompleted) {
   
-        const winners = this.pluckWinners();
+    //     const winners = this.pluckWinners();
   
-        this.bracket.push(this.chunk(winners, 2).map((opponents) => this.createMatch(opponents)));
+    //     this.bracket.push(this.chunk(winners, 2).map((opponents) => this.createMatch(opponents)));
   
-        ++this.currentRoundIdx;
+    //     ++this.currentRoundIdx;
   
-        console.log(`Round ${this.currentRoundIdx + 1} has started!`);
-      }
-    }
+    //     console.log(`Round ${this.currentRoundIdx + 1} has started!`);
+    //   }
+    // }
   
-    pluckWinners() {
-      const winners = [];
+    // pluckWinners() {
+    //   const winners = [];
   
-      this.bracket[this.currentRoundIdx].forEach(({ player1, player2 }) => {
-        if (player1.winner) {
-          winners.push(player1.name)
-        }
+    //   this.bracket[this.currentRoundIdx].forEach(({ player1, player2 }) => {
+    //     if (player1.winner) {
+    //       winners.push(player1.name)
+    //     }
   
-        if (player2.winner) {
-          winners.push(player2.name);
-        }
-      });
+    //     if (player2.winner) {
+    //       winners.push(player2.name);
+    //     }
+    //   });
   
-      return winners;
-    }
+    //   return winners;
+    // }
   
     // Validate that a user can only join once
     joinBracket(player) {
