@@ -34,11 +34,31 @@ client.on('message', (msg) => {
     if (command === "!initiative") {
         msg.channel.send("Roll initiative!")
     }
-    if (command === `${prefix}join`) {
+    if (command === `join`) {
+        let exists = false
+        console.log("if reached")
+        console.log(msg.author.id)
+        console.log(players.startingPlayers.length)
+
+        for (let i = 0; i < players.startingPlayers.length + 1; i++) {
+            console.log(msg.author.id)
+            console.log(players.startingPlayers[i])
+            if(`<@${msg.author.id}>` === players.startingPlayers[i])
+            {
+                console.log("In the fight")
+                msg.channel.send(`<@${msg.author.id}> is already in the fight`)
+                exists = true
+                return exists
+            }
+        }
+        if (!exists){
         console.log(`<@${msg.author.id}> has joined the fight!`)
         players.joinBracket(`<@${msg.author.id}>`);
         msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
-        console.log(players)
+        }
+            // console.log(`<@${msg.author.id}> has joined the fight!`)
+            // players.joinBracket(`<@${msg.author.id}>`);
+            // msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
     }
 
 })
