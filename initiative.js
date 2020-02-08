@@ -6,8 +6,6 @@ class Bracket {
       this.bracket = [];
       this.bracketPlayers = [];
       this.currentRoundIdx = 0;
-      this.isStarted = false;
-      this.isFinished = false;
     }
   
     joinBracket(player) {
