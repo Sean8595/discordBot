@@ -3,9 +3,6 @@ class Bracket {
       this.client = client;
       this.channelName = channelName;
       this.startingPlayers = players;
-      this.bracket = [];
-      this.bracketPlayers = [];
-      this.currentRoundIdx = 0;
     }
   
     joinBracket(player) {
@@ -15,27 +12,6 @@ class Bracket {
       } else {
         this.client.channels.find(x => x.name === this.channelName).send('You cannot join. Match has already started');
       }
-    }
-  
-    checkRoundEnd() {
-      let isCompleted = true;
-      this.bracket[this.currentRoundIdx].forEach(({ completed }) => {
-        if (!completed) {
-          isCompleted = false;
-        }
-      });
-  
-      return isCompleted;
-    }
-  
-    createMatch(opponents) {
-      const byeIndex = opponents.indexOf('BYE');
-      const hasBye = byeIndex !== -1;
-      return {
-        player1: { name: opponents[0], winner: hasBye && byeIndex !== 0 ? true : false },
-        player2: { name: opponents[1], winner: hasBye && byeIndex !== 1 ? true : false },
-        completed: hasBye ? true : false,
-      };
     }
   }
   
