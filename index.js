@@ -1,15 +1,10 @@
 require('dotenv').config()
-
 const Discord = require('discord.js');
 const Bracket = require('./initiative.js');
-const Player = require('./user.js')
-
 const client = new Discord.Client();
 const players = new Bracket([]);
-const character = new Player(str, dex, con, wis, int, cha, name);
-
 const token = process.env.TOKEN;
-const prefix = process.env.PREFIX
+const prefix = process.env.PREFIX;
 
 client.on('message', (msg) => {
 
@@ -59,15 +54,10 @@ client.on('message', (msg) => {
             console.log(players.startingPlayers)
         }
     }
-    if (command = 'create')
-    {
-        character.makePlayer()
-    }
 })
 
 client.on('ready', () => {
     console.log("bot is connected")
     // client.channels.find(x => x.name === 'general').send("hello!")
 })
-
 client.login(token);
