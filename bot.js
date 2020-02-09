@@ -30,10 +30,12 @@ client.on('message', (msg) => {
             // msg.channel.send(`${newTotal} + ${args[3]}`),
             newTotal = newTotal + Number(args[3]);
         }
-
+        else{
+        args[3] === 0;
         msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
         // msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
         console.log(args)
+        }
     }
     if (command === 'sayhi') {
         msg.channel.send("hello " + msg.author)
