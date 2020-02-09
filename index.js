@@ -17,15 +17,22 @@ client.on('message', (msg) => {
         if (!args.length) {
             return msg.channel.send(`What sided dice! How many! ${msg.author}!`);
         }
-        for (let i = 0; i < args[1]; i++) {
+        for (let i = 0; i < args[1]; i++) 
+        {
             let roll = (Math.floor(Math.random() * args[0]) + 1);
             rolls.push(roll)
             console.log(rolls)
             newTotal = newTotal + roll;
             console.log("roll is " + roll)
         }
-        msg.channel.send(`${msg.author} has rolled ${rolls}`)
-        msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
+        if (args[2] === "+")
+        {
+            // msg.channel.send(`${newTotal} + ${args[3]}`),
+            newTotal = newTotal + Number(args[3]);
+        }
+
+        msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
+        // msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
         console.log(args)
     }
     if (command === 'sayhi') {
