@@ -10,10 +10,14 @@ client.on('message', (msg) => {
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
     const args = msg.content.slice(prefix.length).split(' ');
+    console.log(args)
     const command = args.shift().toLowerCase();
+    console.log(command)
     let rolls = []
     if (command === 'roll') {
+        console.log(prefix)
         let newTotal = 0
+        // console.log(prefix.length)
         if (!args.length) {
             return msg.channel.send(`What sided dice! How many! ${msg.author}!`);
         }
@@ -23,16 +27,17 @@ client.on('message', (msg) => {
             rolls.push(roll)
             console.log(rolls)
             newTotal = newTotal + roll;
-            console.log("roll is " + roll)
         }
         if (args[2] === "+")
         {
+            console.log(args[2])
             // msg.channel.send(`${newTotal} + ${args[3]}`),
             newTotal = newTotal + Number(args[3]);
+            msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
         }
         else{
         args[3] === 0;
-        msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
+        msg.channel.send(`${msg.author} has rolled ${rolls}\n TotalRoll: ${newTotal}`)
         // msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
         console.log(args)
         }
@@ -63,6 +68,7 @@ client.on('message', (msg) => {
             console.log(players.startingPlayers)
         }
     }
+
 })
 
 client.on('ready', () => {
