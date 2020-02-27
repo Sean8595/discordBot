@@ -10,9 +10,7 @@ client.on('message', (msg) => {
 
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
     const args = msg.content.slice(prefix.length).split(' ');
-    console.log(args)
     const command = args.shift().toLowerCase();
-    console.log(command)
     let rolls = []
     if (command === 'roll') {
         console.log(prefix)
@@ -42,6 +40,27 @@ client.on('message', (msg) => {
         console.log(args)
         }
     }
+    //  Adventure Function
+    
+    if (command === "adventure")
+    {
+        console.log("entered adventure")
+        let exists = false
+        for (let i = 0; i < party.startingPlayers.length + 1; i++) {
+            if (`<@${msg.author.id}>` === players.startingPlayers[i]) {
+                msg.channel.send(`<@${msg.author.id}> is already on an adventure`)
+                exists = true
+                return exists
+            }
+        }
+        if (!exists) {
+            party.joinAdventure(`<@${msg.author.id}>`);
+            msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+            console.log(players.startingPlayers)
+        }
+    }
+
+    // Say Hi Function
     if (command === 'sayhi') {
         msg.channel.send("hello " + msg.author)
     }
@@ -68,7 +87,6 @@ client.on('message', (msg) => {
             console.log(players.startingPlayers)
         }
     }
-
 })
 
 client.on('ready', () => {

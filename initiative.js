@@ -1,8 +1,9 @@
 class Bracket {
-    constructor(players, client, channelName) {
+    constructor(players, client, channelName, party) {
       this.client = client;
       this.channelName = channelName;
       this.startingPlayers = players;
+      this.adventureParty = party;
       this.bracket = [];
       this.bracketPlayers = [];
       this.currentRoundIdx = 0;
@@ -15,6 +16,11 @@ class Bracket {
       } else {
         this.client.channels.find(x => x.name === this.channelName).send('You cannot join. Match has already started');
       }
+    }
+
+    joinAdventure(player) {
+        this.adventureParty.push(player);
+        console.log(party)
     }
   
     checkRoundEnd() {
