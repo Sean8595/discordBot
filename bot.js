@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 const Bracket = require('./initiative.js');
 const client = new Discord.Client();
 const players = new Bracket([]);
+const party = new Bracket([]);
 const token = process.env.TOKEN;
 const prefix = process.env.PREFIX;
 
