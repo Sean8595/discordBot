@@ -18,8 +18,8 @@ class Bracket {
       }
     }
 
-    joinAdventure(player) {
-        this.adventureParty.push(player);
+    joinAdventure(party) {
+        this.adventureParty.push(party);
         console.log(party)
     }
   
