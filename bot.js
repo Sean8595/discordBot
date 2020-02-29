@@ -56,12 +56,25 @@ client.on('message', (msg) => {
             stats.push(statValue)
             console.log(stats)
         }
-        var newChar = {name: msg.author.username,str:stats[0], dex:stats[1],int:stats[2]}
+        var newChar = {name: msg.author.username, str:stats[0], dex:stats[1], int:stats[2], hp:roundUp(10 + stats[0]/2), gp:10}
         party.push(newChar)
         console.log(party)
         msg.channel.send(`${msg.author} has joined the adventure!`)
         }
     }
+    if (command === "start" && party.length > 0){
+        msg.channel.send(`You are off on your adventure! Where do you want to go?`)
+        msg.channel.send(newChar)
+        msg.channel.send(`!town !forest !retire`)
+        if(command === "town"){
+            enterTown();
+        }
+        else if(command === "forest"){
+            enterForest()
+        }
+        
+    }
+
 
     // Say Hi Function
     if (command === 'sayhi') {
