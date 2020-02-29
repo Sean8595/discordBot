@@ -42,23 +42,11 @@ client.on('message', (msg) => {
         }
     }
     //  Adventure Function
-    
+    var party = []
     if (command === "adventure")
     {
-        console.log("entered adventure")
-        let exists = false
-        for (let i = 0; i < party.startingPlayers.length + 1; i++) {
-            if (`<@${msg.author.id}>` === players.startingPlayers[i]) {
-                msg.channel.send(`<@${msg.author.id}> is already on an adventure`)
-                exists = true
-                return exists
-            }
-        }
-        if (!exists) {
-            party.joinAdventure(`<@${msg.author.id}>`);
-            msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
-            console.log(players.startingPlayers)
-        }
+        party.push(msg.author)
+        console.log(party)
     }
 
     // Say Hi Function
