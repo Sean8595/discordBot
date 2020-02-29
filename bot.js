@@ -45,8 +45,21 @@ client.on('message', (msg) => {
     var party = []
     if (command === "adventure")
     {
-        party.push(msg.author)
+        if(party.includes(msg.author.username))
+        {
+            msg.channel.send(`${msg.author} has already joined the adventure!`)
+        }
+        else{
+        for (let i = 0; i < 4; i++) {
+            let statValue = Math.floor((Math.random() * 10) + 1)
+            let stats = []
+            stats.push(statValue)
+        }
+        var newChar = {str:stats[0],dex:stats[1],int:stats[2]}
+        party.push(newChar)
         console.log(party)
+        msg.channel.send(`${msg.author} has joined the adventure!`)
+        }
     }
 
     // Say Hi Function
