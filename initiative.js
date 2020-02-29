@@ -22,8 +22,13 @@ class Bracket {
         console.log(party)
     }
     enterTown(){
+      try{
       msg.channel.send(`Welcome to Town!`)
       msg.channel.send(`!shop, !rest, !leave`)
+      }
+      catch(err){
+        "issue is" + err
+      }
     }
     enterForest(){
       let encounter = Math.floor((Math.random() * 3) + 1)
