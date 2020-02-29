@@ -56,7 +56,7 @@ client.on('message', (msg) => {
             stats.push(statValue)
             console.log(stats)
         }
-        var newChar = {name: msg.author.username, str:stats[0], dex:stats[1], int:stats[2], hp:roundUp(10 + stats[0]/2), gp:10}
+        var newChar = {name: msg.author.username, str:stats[0], dex:stats[1], int:stats[2], hp:Math.round(10 + stats[0]/2), gp:10}
         party.push(newChar)
         console.log(party)
         msg.channel.send(`${msg.author} has joined the adventure!`)
