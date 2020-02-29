@@ -50,12 +50,13 @@ client.on('message', (msg) => {
             msg.channel.send(`${msg.author} has already joined the adventure!`)
         }
         else{
+         var stats = []
         for (let i = 0; i < 4; i++) {
             let statValue = Math.floor((Math.random() * 10) + 1)
-            var stats = []
             stats.push(statValue)
+            console.log(stats)
         }
-        var newChar = {str:stats[0],dex:stats[1],int:stats[2]}
+        var newChar = {name: msg.author.username,str:stats[0], dex:stats[1],int:stats[2]}
         party.push(newChar)
         console.log(party)
         msg.channel.send(`${msg.author} has joined the adventure!`)
