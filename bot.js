@@ -52,7 +52,7 @@ client.on('message', (msg) => {
         else{
         for (let i = 0; i < 4; i++) {
             let statValue = Math.floor((Math.random() * 10) + 1)
-            let stats = []
+            var stats = []
             stats.push(statValue)
         }
         var newChar = {str:stats[0],dex:stats[1],int:stats[2]}
