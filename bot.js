@@ -63,7 +63,7 @@ client.on('message', (msg) => {
         }
         return
     }
-    if (command === "start" && party.length > 0){
+    if (command === "start"){
         msg.channel.send(`You are off on your adventure! Where do you want to go?`)
         msg.channel.send(newChar)
         msg.channel.send(`!town !forest !retire`)
