@@ -61,6 +61,7 @@ client.on('message', (msg) => {
         console.log(party)
         msg.channel.send(`${msg.author} has joined the adventure!`)
         }
+        return
     }
     if (command === "start" && party.length > 0){
         msg.channel.send(`You are off on your adventure! Where do you want to go?`)
