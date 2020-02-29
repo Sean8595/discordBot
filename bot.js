@@ -1,6 +1,8 @@
 require('dotenv').config()
 const Discord = require('discord.js');
 const Bracket = require('./initiative.js');
+const enterForest = require('./initiative.js');
+const enterTown = require('./initiative.js');
 const client = new Discord.Client();
 const players = new Bracket([]);
 const party = new Bracket([]);
