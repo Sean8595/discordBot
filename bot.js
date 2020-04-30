@@ -43,37 +43,72 @@ client.on('message', (msg) => {
         console.log(args)
         }
     }
-    //  Adventure Function
-    var party = []
-    if (command === "adventure")
-    {
-        if(party.includes(msg.author.username))
-        {
-            msg.channel.send(`${msg.author} has already joined the adventure!`)
+
+    function fight(){
+        var playerHP = 10;
+        var monsterHP = 5;
+        var playerAttack = 3;
+        var monsterAttack = 1;
+        var turn = ''
+        msg.channel.send(`!attack !defend !run`)
+        if(command === 'attack'){
+            msg.channel.send(`you swing and attack`)
+            monsterHP - playerAttack == monsterHP;
+            turn = 'over'
         }
-        else{
-         var stats = []
-        for (let i = 0; i < 4; i++) {
-            let statValue = Math.floor((Math.random() * 10) + 1)
-            stats.push(statValue)
-            console.log(stats)
+        else if(command === 'defend'){
+            msg.channel.send(`you've blocked the attack`)
+            turn = 'over'
         }
-        var newChar = {name: msg.author.username, str:stats[0], dex:stats[1], int:stats[2], hp:Math.round(10 + stats[0]/2), gp:10}
-        party.push(newChar)
-        console.log(party)
-        msg.channel.send(`${msg.author} has joined the adventure!`)
+        else if (command === `run`){
+            msg.channel.send(`you've run away`)
+            turn = 'over'
         }
-        return
+        
     }
+    //  Adventure Function
+    // var party = []
+    // if (command === "adventure")
+    // {
+    //     if(party.includes(msg.author.username))
+    //     {
+    //         msg.channel.send(`${msg.author} has already joined the adventure!`)
+    //     }
+    //     else{
+    //     msg.channel.send(`${msg.author} has joined the adventure!`)
+    //     }
+    // }
+
+
+
+    if (command === `adventure`) {
+            let exists = false
+            for (let i = 0; i < party.adventureParty.length + 1; i++) {
+                if (`<@${msg.author.id}>` === party.adventureParty[i]) {
+                    msg.channel.send(`<@${msg.author.id}> is already in the fight`)
+                    exists = true
+                    return exists
+                }
+            }
+            if (!exists) {
+                party.joinBracket(`<@${msg.author.id}>`);
+                msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+                console.log(party.adventureParty)
+            }
+        }
+        
+    
     if (command === "start"){
         msg.channel.send(`You are off on your adventure! Where do you want to go?`)
         msg.channel.send(newChar)
         msg.channel.send(`!town !forest !retire`)
         if(command === "town"){
-            enterTown();
+            
         }
         else if(command === "forest"){
-            enterForest()
+            msg.channel.send(`you have entered the forest`);
+            msg.channel.send(`You are attacked by a goblin!`);
+            fight();
         }
         
     }
