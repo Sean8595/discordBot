@@ -44,28 +44,16 @@ client.on('message', (msg) => {
         }
     }
 
-    function fight(){
-        var playerHP = 10;
-        var monsterHP = 5;
-        var playerAttack = 3;
-        var monsterAttack = 1;
-        var turn = ''
-        msg.channel.send(`!attack !defend !run`)
-        if(command === 'attack'){
-            msg.channel.send(`you swing and attack`)
-            monsterHP - playerAttack == monsterHP;
-            turn = 'over'
+function Char(playerHp, attack, name) {
+        this.playerHp = playerHp;
+        this.attack = attack;
+        this.name = name;
+        this.strike = function(victHp){
+            var newHp = this.attack - victHp
         }
-        else if(command === 'defend'){
-            msg.channel.send(`you've blocked the attack`)
-            turn = 'over'
-        }
-        else if (command === `run`){
-            msg.channel.send(`you've run away`)
-            turn = 'over'
-        }
+      }
         
-    }
+    // }
     //  Adventure Function
     // var party = []
     // if (command === "adventure")
@@ -108,7 +96,24 @@ client.on('message', (msg) => {
         else if(command === "forest"){
             msg.channel.send(`you have entered the forest`);
             msg.channel.send(`You are attacked by a goblin!`);
-            fight();
+
+            var playerOne = new Char(10, 5, msg.author);
+            var playerTwo = new Char(5, 3, "Goblin");
+
+            msg.channel.send(`!attack !defend !run`)
+            if(command === 'attack'){
+                msg.channel.send(`you swing and attack`)
+                playerOne.strike(playerTwo.playerHp)
+            }
+            else if(command === 'defend'){
+                msg.channel.send(`you've blocked the attack`)
+                turn = 'over'
+            }
+            else if (command === `run`){
+                msg.channel.send(`you've run away`)
+                turn = 'over'
+            }
+        
         }
         
     }
