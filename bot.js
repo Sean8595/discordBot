@@ -78,11 +78,11 @@ function Char(playerHp, attack, name) {
             //         return exists
             //     }
             // }
-            if (!exists) {
-                party.joinBracket(`<@${msg.author.id}>`);
-                msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
-                console.log(party.adventureParty)
-            }
+            // if (!exists) {
+            //     party.joinBracket(`<@${msg.author.id}>`);
+            //     msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+            //     console.log(party.adventureParty)
+            // }
         }
         
 //starts adventure
