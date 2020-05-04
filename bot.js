@@ -52,31 +52,31 @@ function Char(playerHp, attack, name) {
             var newHp = this.attack - victHp
         }
       }
-        
-    // }
+
     //  Adventure Function
-    // var party = []
-    // if (command === "adventure")
-    // {
-    //     if(party.includes(msg.author.username))
-    //     {
-    //         msg.channel.send(`${msg.author} has already joined the adventure!`)
-    //     }
-    //     else{
-    //     msg.channel.send(`${msg.author} has joined the adventure!`)
-    //     }
-    // }
+    var party = []
+    if (command === "adventure")
+    {
+        if(party.includes(msg.author.username))
+        {
+            msg.channel.send(`${msg.author} has already joined the adventure!`)
+        }
+        else{
+        msg.channel.send(`${msg.author} has joined the adventure!`)
+        }
+    }
 
-
-
+    
+//builds party for adventure
     if (command === `adventure`) {
             let exists = false
-            for (let i = 0; i < party.adventureParty.length + 1; i++) {
-                if (`<@${msg.author.id}>` === party.adventureParty[i]) {
-                    msg.channel.send(`<@${msg.author.id}> is already in the fight`)
-                    exists = true
-                    return exists
-                }
+            console.log(party.adventureParty)
+            // for (let i = 0; i < party.adventureParty.length + 1; i++) {
+            //     if (`<@${msg.author.id}>` === party.adventureParty[i]) {
+            //         msg.channel.send(`<@${msg.author.id}> is already in the fight`)
+            //         exists = true
+            //         return exists
+            //     }
             }
             if (!exists) {
                 party.joinBracket(`<@${msg.author.id}>`);
@@ -85,10 +85,9 @@ function Char(playerHp, attack, name) {
             }
         }
         
-    
+//starts adventure
     if (command === "start"){
         msg.channel.send(`You are off on your adventure! Where do you want to go?`)
-        msg.channel.send(newChar)
         msg.channel.send(`!town !forest !retire`)
         if(command === "town"){
             
