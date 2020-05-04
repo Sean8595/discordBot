@@ -54,16 +54,16 @@ function Char(playerHp, attack, name) {
       }
 
     //  Adventure Function
-    if (command === "adventure")
-    {
-        if(party.includes(msg.author.username))
-        {
-            msg.channel.send(`${msg.author} has already joined the adventure!`)
-        }
-        else{
-        msg.channel.send(`${msg.author} has joined the adventure!`)
-        }
-    }
+    // if (command === "adventure")
+    // {
+    //     if(party.includes(msg.author.username))
+    //     {
+    //         msg.channel.send(`${msg.author} has already joined the adventure!`)
+    //     }
+    //     else{
+    //     msg.channel.send(`${msg.author} has joined the adventure!`)
+    //     }
+    // }
 
     
 //builds party for adventure
