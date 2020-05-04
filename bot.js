@@ -68,9 +68,13 @@ function Char(playerHp, attack, name) {
     
 //builds party for adventure
     if (command === `adventure`) {
-            var party = []
             let exists = false
             console.log(party.adventureParty)
+
+            party.joinAdventure(`<@${msg.author.id}>`);
+            msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+            console.log(players.startingPlayers)
+
             // for (let i = 0; i < party.adventureParty.length + 1; i++) {
             //     if (`<@${msg.author.id}>` === party.adventureParty[i]) {
             //         msg.channel.send(`<@${msg.author.id}> is already in the fight`)
