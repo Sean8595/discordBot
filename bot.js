@@ -54,7 +54,6 @@ function Char(playerHp, attack, name) {
       }
 
     //  Adventure Function
-    var party = []
     if (command === "adventure")
     {
         if(party.includes(msg.author.username))
@@ -69,6 +68,7 @@ function Char(playerHp, attack, name) {
     
 //builds party for adventure
     if (command === `adventure`) {
+            var party = []
             let exists = false
             console.log(party.adventureParty)
             // for (let i = 0; i < party.adventureParty.length + 1; i++) {
