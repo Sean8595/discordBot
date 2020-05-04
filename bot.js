@@ -77,7 +77,7 @@ function Char(playerHp, attack, name) {
             //         exists = true
             //         return exists
             //     }
-            }
+            // }
             if (!exists) {
                 party.joinBracket(`<@${msg.author.id}>`);
                 msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
