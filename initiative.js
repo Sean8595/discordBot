@@ -3,7 +3,7 @@ class Bracket {
       this.client = client;
       this.channelName = channelName;
       this.startingPlayers = players;
-      this.adventureParty = party;
+      this.startingParty = party;
       this.bracket = [];
       this.bracketPlayers = [];
       this.currentRoundIdx = 0;
@@ -18,7 +18,7 @@ class Bracket {
       }
     }
     joinAdventure(party) {
-        this.adventureParty.push(party);
+        this.startingParty.push(party);
         console.log(party)
     }
     enterTown(){
@@ -30,23 +30,23 @@ class Bracket {
         "issue is" + err
       }
     }
-    enterForest(){
-      let encounter = Math.floor((Math.random() * 3) + 1)
-      if(encounter = 1){
-        msg.channel.send(`You've been attacked by goblins! What will you do?`)
-        msg.channel.send(`!fight !flee !trick`)
-      }
-    }
-    fightFunction(str,int){
-      enemyStat = Math.floor((Math.random() * 10) + 1)
-      if(str >= enemyStat){
-        const reward = Math.floor((Math.random() * 10) + 1)
-        msg.channel.send(`You found ${reward} gold!`)
-      }
-      else{
-        msg.channel.send(`You've been defeated :(`)
-      }
-    }
+    // enterForest(){
+    //   let encounter = Math.floor((Math.random() * 3) + 1)
+    //   if(encounter = 1){
+    //     msg.channel.send(`You've been attacked by goblins! What will you do?`)
+    //     msg.channel.send(`!fight !flee !trick`)
+    //   }
+    // }
+    // fightFunction(str,int){
+    //   enemyStat = Math.floor((Math.random() * 10) + 1)
+    //   if(str >= enemyStat){
+    //     const reward = Math.floor((Math.random() * 10) + 1)
+    //     msg.channel.send(`You found ${reward} gold!`)
+    //   }
+    //   else{
+    //     msg.channel.send(`You've been defeated :(`)
+    //   }
+    // }
     fleeFunction(dex, int){
     }
     trickFunction(int){
