@@ -144,6 +144,7 @@ function Char(playerHp, attack, name) {
             }
         }
         if (!exists) {
+            console.log(players.startingPlayers)
             players.joinBracket(`<@${msg.author.id}>`);
             msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
             console.log(players.startingPlayers)
