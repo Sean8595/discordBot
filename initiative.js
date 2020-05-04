@@ -18,9 +18,9 @@ class Bracket {
         this.client.channels.find(x => x.name === this.channelName).send('You cannot join. Match has already started');
       }
     }
-    joinAdventure(party) {
-        this.startingParty.push(party);
-        console.log(party)
+    joinAdventure(partyPeople) {
+        this.startingParty.push(partyPeople);
+        console.log(partyPeople)
     }
     enterTown(){
       try{
