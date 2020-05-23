@@ -18,8 +18,8 @@ client.on('message', (msg) => {
     if (command === 'roll') {
         console.log(prefix)
         let newTotal = 0
-        if (args[1] >= 20) {
-            return msg.channel.send(`Stop, im not rolling that many die anymore. Keep it less than 20`);
+        if (args[1] > 20 || args[0] > 200) {
+            return msg.channel.send(`Stop, im not rolling that many die anymore. Keep it less than 20 and at most 200 sided die`);
         }
         else {
             if (!args.length) {
