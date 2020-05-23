@@ -4,9 +4,9 @@ class Bracket {
       this.channelName = channelName;
       this.startingPlayers = players;
       this.startingParty = party;
-      this.bracket = [];
-      this.bracketPlayers = [];
-      this.currentRoundIdx = 0;
+      // this.bracket = [];
+      // this.bracketPlayers = [];
+      // this.currentRoundIdx = 0;
     }
   
     joinBracket(player) {
@@ -48,14 +48,6 @@ class Bracket {
     //     msg.channel.send(`You've been defeated :(`)
     //   }
     // }
-    fleeFunction(dex, int){
-    }
-    trickFunction(int){
-    }
-    shopFunction(gp){
-    }
-    restFunction(hp){
-    }
 
 
     ////////////////////////Extra 

@@ -18,40 +18,42 @@ client.on('message', (msg) => {
     if (command === 'roll') {
         console.log(prefix)
         let newTotal = 0
-        // console.log(prefix.length)
-        if (!args.length) {
-            return msg.channel.send(`What sided dice! How many! ${msg.author}!`);
+        if (args[1] >= 20) {
+            return msg.channel.send(`Stop, im not rolling that many die anymore. Keep it less than 20`);
         }
-        for (let i = 0; i < args[1]; i++) 
-        {
-            let roll = (Math.floor(Math.random() * args[0]) + 1);
-            rolls.push(roll)
-            console.log(rolls)
-            newTotal = newTotal + roll;
-        }
-        if (args[2] === "+")
-        {
-            console.log(args[2])
-            // msg.channel.send(`${newTotal} + ${args[3]}`),
-            newTotal = newTotal + Number(args[3]);
-            msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
-        }
-        else{
-        args[3] === 0;
-        msg.channel.send(`${msg.author} has rolled ${rolls}\n TotalRoll: ${newTotal}`)
-        // msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
-        console.log(args)
+        else {
+            if (!args.length) {
+                return msg.channel.send(`What sided dice! How many! ${msg.author}!`);
+            }
+            for (let i = 0; i < args[1]; i++) {
+                let roll = (Math.floor(Math.random() * args[0]) + 1);
+                rolls.push(roll)
+                console.log(rolls)
+                newTotal = newTotal + roll;
+            }
+            if (args[2] === "+") {
+                console.log(args[2])
+                // msg.channel.send(`${newTotal} + ${args[3]}`),
+                newTotal = newTotal + Number(args[3]);
+                msg.channel.send(`${msg.author} has rolled ${rolls}\n ${newTotal} + ${args[3]}\n TotalRoll: ${newTotal}`)
+            }
+            else {
+                args[3] === 0;
+                msg.channel.send(`${msg.author} has rolled ${rolls}\n TotalRoll: ${newTotal}`)
+                // msg.channel.send(`${msg.author} TotalRoll: ${newTotal}`);
+                console.log(args)
+            }
         }
     }
 
-function Char(playerHp, attack, name) {
+    function Char(playerHp, attack, name) {
         this.playerHp = playerHp;
         this.attack = attack;
         this.name = name;
-        this.strike = function(victHp){
+        this.strike = function (victHp) {
             var newHp = this.attack - victHp
         }
-      }
+    }
 
     //  Adventure Function
     // if (command === "adventure")
@@ -65,38 +67,38 @@ function Char(playerHp, attack, name) {
     //     }
     // }
 
-    
-//builds party for adventure
+
+    //builds party for adventure
     if (command === `adventure`) {
-            let exists = false
-            console.log(party.adventureParty)
+        let exists = false
+        console.log(party.adventureParty)
 
-            party.joinAdventure(`<@${msg.author.id}>`);
-            msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
-            console.log(players.startingPlayers)
+        party.joinAdventure(`<@${msg.author.id}>`);
+        msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+        console.log(players.adventureParty)
 
-            // for (let i = 0; i < party.adventureParty.length + 1; i++) {
-            //     if (`<@${msg.author.id}>` === party.adventureParty[i]) {
-            //         msg.channel.send(`<@${msg.author.id}> is already in the fight`)
-            //         exists = true
-            //         return exists
-            //     }
-            // }
-            // if (!exists) {
-            //     party.joinBracket(`<@${msg.author.id}>`);
-            //     msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
-            //     console.log(party.adventureParty)
-            // }
-        }
-        
-//starts adventure
-    if (command === "start"){
+        // for (let i = 0; i < party.adventureParty.length + 1; i++) {
+        //     if (`<@${msg.author.id}>` === party.adventureParty[i]) {
+        //         msg.channel.send(`<@${msg.author.id}> is already in the fight`)
+        //         exists = true
+        //         return exists
+        //     }
+        // }
+        // if (!exists) {
+        //     party.joinBracket(`<@${msg.author.id}>`);
+        //     msg.channel.send(`<@${msg.author.id}> has joined the fight!`)
+        //     console.log(party.adventureParty)
+        // }
+    }
+
+    //starts adventure
+    if (command === "start") {
         msg.channel.send(`You are off on your adventure! Where do you want to go?`)
         msg.channel.send(`!town !forest !retire`)
-        if(command === "town"){
-            
+        if (command === "town") {
+
         }
-        else if(command === "forest"){
+        else if (command === "forest") {
             msg.channel.send(`you have entered the forest`);
             msg.channel.send(`You are attacked by a goblin!`);
 
@@ -104,21 +106,21 @@ function Char(playerHp, attack, name) {
             var playerTwo = new Char(5, 3, "Goblin");
 
             msg.channel.send(`!attack !defend !run`)
-            if(command === 'attack'){
+            if (command === 'attack') {
                 msg.channel.send(`you swing and attack`)
                 playerOne.strike(playerTwo.playerHp)
             }
-            else if(command === 'defend'){
+            else if (command === 'defend') {
                 msg.channel.send(`you've blocked the attack`)
                 turn = 'over'
             }
-            else if (command === `run`){
+            else if (command === `run`) {
                 msg.channel.send(`you've run away`)
                 turn = 'over'
             }
-        
+
         }
-        
+
     }
 
 
