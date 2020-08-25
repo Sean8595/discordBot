@@ -1,5 +1,5 @@
 require('dotenv').config()
-var express = require('express')
+var axios = require('axios')
 var app = express()
 
 const Discord = require('discord.js');
@@ -12,6 +12,7 @@ const prefix = process.env.PREFIX;
 
 client.on('message', (msg) => {
 
+////This is the rolling stuff
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
     const args = msg.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
@@ -47,14 +48,14 @@ client.on('message', (msg) => {
         }
     }
 
-    function Char(playerHp, attack, name) {
-        this.playerHp = playerHp;
-        this.attack = attack;
-        this.name = name;
-        this.strike = function (victHp) {
-            var newHp = this.attack - victHp
-        }
-    }
+    // function Char(playerHp, attack, name) {
+    //     this.playerHp = playerHp;
+    //     this.attack = attack;
+    //     this.name = name;
+    //     this.strike = function (victHp) {
+    //         var newHp = this.attack - victHp
+    //     }
+    // }
 
     //  Adventure Function
     // if (command === "adventure")
@@ -153,6 +154,16 @@ client.on('message', (msg) => {
             console.log(players.startingPlayers)
         }
     }
+
+
+////////This is the 5e API work
+if (command = "lll"){
+    axios.get("https://www.dnd5eapi.co/api/").then(function(response){
+    msg.channel.send(response.status)
+    })
+}
+
+
 })
 
 client.on('ready', () => {
