@@ -169,8 +169,8 @@ if (command === "spell"){
     let components = comps.join()
     msg.channel.send(new Discord.RichEmbed()
     .setTitle(response.data.name)
-    .setDescription(response.data.desc, response.data.higher_level)
-    .setFooter(response.data.range, components)
+    .setDescription(response.data.desc + "\n" + "################" + '\n' + response.data.higher_level)
+    .setFooter(response.data.range + " " + components)
     )
     })
 }
