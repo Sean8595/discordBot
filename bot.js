@@ -156,8 +156,10 @@ client.on('message', (msg) => {
 
 
 ////////This is the 5e API work
-if (command === "lll"){
-    axios.get("https://www.dnd5eapi.co/api/").then(function(response){
+if (command === "spell"){
+    const spell = msg.content.slice(prefix.length).split(' ')
+    msg.channel.send(spell)
+    axios.get("https://www.dnd5eapi.co/api/spell/" + spell).then(function(response){
     msg.channel.send(response.status)
     })
 }
