@@ -163,7 +163,8 @@ if (command === "spell"){
     console.log(spell)
     msg.channel.send(spell)
     axios.get("https://www.dnd5eapi.co/api/spells/" + spell + "/").then(function(response){
-    msg.channel.send(response.name)
+    console.log(response.data)
+    msg.channel.send(response.data.name)
     })
 }
 
