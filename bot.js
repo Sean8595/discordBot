@@ -156,7 +156,7 @@ client.on('message', (msg) => {
 
 
 ////////This is the 5e API work
-if (command = "lll"){
+if (command === "lll"){
     axios.get("https://www.dnd5eapi.co/api/").then(function(response){
     msg.channel.send(response.status)
     })
