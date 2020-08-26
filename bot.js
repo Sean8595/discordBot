@@ -157,16 +157,20 @@ client.on('message', (msg) => {
 
 ////////This is the 5e API work
 if (command === "spell"){
+
     let rawSpell = msg.content.slice(7);
     let noSpace = rawSpell.replace(/\s/g , '-',)
     let spell = noSpace.toLocaleLowerCase()
     console.log(spell)
-    msg.channel.send(spell)
+
     axios.get("https://www.dnd5eapi.co/api/spells/" + spell + "/").then(function(response){
     console.log(response.data);
+
     msg.channel.send(response.data.name);
+
     let comps = response.data.components
     let components = comps.join()
+
     msg.channel.send(new Discord.RichEmbed()
     .setTitle(response.data.name)
     .setDescription(response.data.desc + "\n" + "################" + '\n' + response.data.higher_level)
