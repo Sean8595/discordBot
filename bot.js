@@ -157,7 +157,7 @@ client.on('message', (msg) => {
 
 ////////This is the 5e API work
 if (command === "spell"){
-    let rawSpell = msg.content.slice(6);
+    let rawSpell = msg.content.slice(7);
     let noSpace = rawSpell.replace(/\s/g , '-',)
     let spell = noSpace.toLocaleLowerCase()
     console.log(spell)
