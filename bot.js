@@ -1,6 +1,5 @@
 require('dotenv').config()
 var axios = require('axios')
-var app = express()
 
 const Discord = require('discord.js');
 const Bracket = require('./initiative.js');
