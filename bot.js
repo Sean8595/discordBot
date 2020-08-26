@@ -162,7 +162,7 @@ if (command === "spell"){
     let spell = noSpace.toLocaleLowerCase()
     console.log(spell)
     msg.channel.send(spell)
-    axios.get("https://www.dnd5eapi.co/api/spell/" + spell + "/").then(function(response){
+    axios.get("https://www.dnd5eapi.co/api/spells/" + spell + "/").then(function(response){
     msg.channel.send(response.status)
     })
 }
