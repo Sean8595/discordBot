@@ -157,8 +157,10 @@ client.on('message', (msg) => {
 
 ////////This is the 5e API work
 if (command === "spell"){
-    const spell = msg.content.slice(6);
-    console.log(prefix.length)
+    let spell = msg.content.slice(6);
+    let noSpace = spell.replace(" ", "")
+    let spell = noSpace.toLocaleLowerCase()
+    console.log(spell)
     msg.channel.send(spell)
     axios.get("https://www.dnd5eapi.co/api/spell/" + spell).then(function(response){
     msg.channel.send(response.status)
