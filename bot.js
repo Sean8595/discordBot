@@ -167,8 +167,8 @@ if (command === "spell"){
     msg.channel.send(response.data.name);
     msg.channel.send(new Discord.RichEmbed()
     .setTitle(response.data.name)
-    .setDescription(response.data.desc)
-    .setFooter(response.data.range)
+    .setDescription(response.data.desc, response.data.higher_level)
+    .setFooter(response.data.range, response.data.components)
     )
     })
 }
