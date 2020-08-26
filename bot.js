@@ -157,7 +157,7 @@ client.on('message', (msg) => {
 
 ////////This is the 5e API work
 if (command === "spell"){
-    const spell = msg.content.slice(prefix.length);
+    const spell = msg.content.slice(6);
     console.log(prefix.length)
     msg.channel.send(spell)
     axios.get("https://www.dnd5eapi.co/api/spell/" + spell).then(function(response){
