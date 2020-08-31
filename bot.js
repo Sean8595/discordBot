@@ -195,7 +195,7 @@ client.on('message', (msg) => {
     ////Idea for make me a character
     //First it selects a class and race using a rng
     if (command === "newchar") {
-        axios.get("https://www.dnd5eapi.co/api/class/").then(function (response) {
+        axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
             console.log(response.data);
         })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
