@@ -177,7 +177,7 @@ client.on('message', (msg) => {
                 return response.data.higher_level
             }
             else{
-                return "this can not be cast at a higher level"
+                return "This spell does not change at a higher level cast"
             }
         }
             msg.channel.send(new Discord.RichEmbed()
