@@ -172,9 +172,17 @@ client.on('message', (msg) => {
             let comps = response.data.components
             let components = comps.join()
 
+            function higher_level(){
+            if (response.data.higher_level){
+                return response.data.higher_level
+            }
+            else{
+                return "this can not be cast at a higher level"
+            }
+        }
             msg.channel.send(new Discord.RichEmbed()
                 .setTitle(response.data.name)
-                .setDescription(response.data.desc + "\n" + "################" + '\n' + response.data.higher_level)
+                .setDescription(response.data.desc + "\n" + "################" + '\n' + higher_level())
                 .setFooter(response.data.range + " " + components)
             )
         }).catch(function (error) {
