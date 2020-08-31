@@ -189,7 +189,7 @@ client.on('message', (msg) => {
     if (command === "newchar") {
         axios.get("https://www.dnd5eapi.co/api/class/").then(function (response) {
             console.log(response.data);
-        }
+        })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
     //ie if a wizard highest to be int and dex, then it asigns the remainder randomly
