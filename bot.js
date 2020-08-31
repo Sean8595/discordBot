@@ -3,6 +3,7 @@ var axios = require('axios')
 
 const Discord = require('discord.js');
 const Bracket = require('./initiative.js');
+const { response } = require('express');
 const client = new Discord.Client();
 const players = new Bracket([]);
 const party = new Bracket([]);
@@ -195,8 +196,11 @@ client.on('message', (msg) => {
     ////Idea for make me a character
     //First it selects a class and race using a rng
     if (command === "newchar") {
+        var res = response.data
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            console.log(response.data.results[1].index);
+            for (let i = 0; i < res.count; i++) {
+                console.log(res.results[1].index);
+            }
         })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
