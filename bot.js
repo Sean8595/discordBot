@@ -198,8 +198,8 @@ client.on('message', (msg) => {
     if (command === "newchar") {
         var res = response.data
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            for (let i = 0; i < res.results.length; i++) {
-                console.log(res.results[1].index);
+            for (let i = 0; i < response.data.count; i++) {
+                console.log(response.data.results[1].index);
             }
         })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
