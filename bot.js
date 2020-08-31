@@ -197,9 +197,15 @@ client.on('message', (msg) => {
     //First it selects a class and race using a rng
     if (command === "newchar") {
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            var pClass = Math.floor(Math.random() * 13)
+            var classNum = Math.floor(Math.random() * 13)
                 console.log(response.data.results[pClass].index);
-        })}
+                pClass = response.data.results[pClass].index
+                console.log(pClass)
+        })
+        axios.get("https://www.dnd5eapi.co/api/races/").then(function (response){
+            console.log(reponse.data.index)
+        })
+    }
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
     //ie if a wizard highest to be int and dex, then it asigns the remainder randomly
