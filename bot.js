@@ -214,7 +214,7 @@ client.on('message', (msg) => {
         })
     function statRoller(modifier){
         var statTotal = 0
-       for (let index = 0; index < array.length; index++) {
+       for (let index = 0; index < 6; index++) {
             singleRoll = Math.floor(Math.random() * 6)
             console.log(singleRoll)
             statTotal + singleRoll == statTotal
