@@ -198,8 +198,8 @@ client.on('message', (msg) => {
     if (command === "newchar") {
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
             var classNum = Math.floor(Math.random() * 13)
-                console.log(response.data.results[pClass].index);
-                pClass = response.data.results[pClass].index
+                console.log(response.data.results[classNum].index);
+                pClass = response.data.results[classNum].index
                 console.log(pClass)
         })
         axios.get("https://www.dnd5eapi.co/api/races/").then(function (response){
