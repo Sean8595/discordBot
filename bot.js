@@ -196,7 +196,7 @@ client.on('message', (msg) => {
     //First it selects a class and race using a rng
     if (command === "newchar") {
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            console.log(response.data);
+            console.log(response.data.index[1]);
         })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
