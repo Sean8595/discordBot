@@ -196,11 +196,9 @@ client.on('message', (msg) => {
     ////Idea for make me a character
     //First it selects a class and race using a rng
     if (command === "newchar") {
-        var res = response.data
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            for (let i = 0; i < response.data.count; i++) {
-                console.log(response.data.results[i].index);
-            }
+            var pClass = Math.floor(Math.random() * 13)
+                console.log(response.data.results[pClass].index);
         })}
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
