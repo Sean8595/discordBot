@@ -11,7 +11,7 @@ const prefix = process.env.PREFIX;
 
 client.on('message', (msg) => {
 
-////This is the rolling stuff
+    ////This is the rolling stuff
     if (!msg.content.startsWith(prefix) || msg.author.bot) return;
     const args = msg.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
@@ -93,36 +93,37 @@ client.on('message', (msg) => {
     }
 
     //starts adventure
-    if (command === "start") {
-        msg.channel.send(`You are off on your adventure! Where do you want to go?`)
-        msg.channel.send(`!town !forest !retire`)
-        if (command === "town") {
+    // if (command === "start") {
+    //     msg.channel.send(`You are off on your adventure! Where do you want to go?`)
+    //     msg.channel.send(`!town !forest !retire`)
+    //     if (command === "town") {
 
-        }
-        else if (command === "forest") {
-            msg.channel.send(`you have entered the forest`);
-            msg.channel.send(`You are attacked by a goblin!`);
+    //     }
+    //     else if (command === "forest") {
+    //         msg.channel.send(`you have entered the forest`);
+    //         msg.channel.send(`You are attacked by a goblin!`);
 
-            var playerOne = new Char(10, 5, msg.author);
-            var playerTwo = new Char(5, 3, "Goblin");
+    //         var playerOne = new Char(10, 5, msg.author);
+    //         var playerTwo = new Char(5, 3, "Goblin");
 
-            msg.channel.send(`!attack !defend !run`)
-            if (command === 'attack') {
-                msg.channel.send(`you swing and attack`)
-                playerOne.strike(playerTwo.playerHp)
-            }
-            else if (command === 'defend') {
-                msg.channel.send(`you've blocked the attack`)
-                turn = 'over'
-            }
-            else if (command === `run`) {
-                msg.channel.send(`you've run away`)
-                turn = 'over'
-            }
+    //         msg.channel.send(`!attack !defend !run`)
+    //         if (command === 'attack') {
+    //             msg.channel.send(`you swing and attack`)
+    //             playerOne.strike(playerTwo.playerHp)
+    //         }
+    //         else if (command === 'defend') {
+    //             msg.channel.send(`you've blocked the attack`)
+    //             turn = 'over'
+    //         }
+    //         else if (command === `run`) {
+    //             msg.channel.send(`you've run away`)
+    //             turn = 'over'
+    //         }
 
-        }
+    //     }
 
-    }
+    // }
+
 
 
     // Say Hi Function
@@ -155,31 +156,52 @@ client.on('message', (msg) => {
     }
 
 
-////////This is the 5e API work
-if (command === "spell"){
+    ////////This is the 5e API work
+    if (command === "spell") {
 
-    let rawSpell = msg.content.slice(7);
-    let noSpace = rawSpell.replace(/\s/g , '-',)
-    let spell = noSpace.toLocaleLowerCase()
-    console.log(spell)
+        let rawSpell = msg.content.slice(7);
+        let noSpace = rawSpell.replace(/\s/g, '-',)
+        let spell = noSpace.toLocaleLowerCase()
+        console.log(spell)
 
-    axios.get("https://www.dnd5eapi.co/api/spells/" + spell + "/").then(function(response){
-    console.log(response.data);
+        axios.get("https://www.dnd5eapi.co/api/spells/" + spell + "/").then(function (response) {
+            console.log(response.data);
 
-    msg.channel.send(response.data.name);
+            msg.channel.send(response.data.name);
 
-    let comps = response.data.components
-    let components = comps.join()
+            let comps = response.data.components
+            let components = comps.join()
 
-    msg.channel.send(new Discord.RichEmbed()
-    .setTitle(response.data.name)
-    .setDescription(response.data.desc + "\n" + "################" + '\n' + response.data.higher_level)
-    .setFooter(response.data.range + " " + components)
-    )
-    })
-}
-
-
+            msg.channel.send(new Discord.RichEmbed()
+                .setTitle(response.data.name)
+                .setDescription(response.data.desc + "\n" + "################" + '\n' + response.data.higher_level)
+                .setFooter(response.data.range + " " + components)
+            )
+        }).catch(function (error) {
+            if (error.response) {
+                msg.channel.send("Sorry but i cant find that spell")
+            }
+        }
+        )
+    }
+    ////Idea for make me a character
+    //First it selects a class and race using a rng
+    if (command === "newchar") {
+        axios.get("https://www.dnd5eapi.co/api/class/").then(function (response) {
+            console.log(response.data);
+        }
+//Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
+//then it looks at the class and assigns the two higest numbers to the two most important stats to the character
+    //ie if a wizard highest to be int and dex, then it asigns the remainder randomly
+//those are assigned and placed into an array
+//next part is tricky....
+//use the DND 5e API to:
+    //Add proficiency bonus based on race
+    //provide a background
+    //Check what proficiencies and languages a character (based on background, race, and class) can have and assigns them randomly
+    //Put in spells again randomly chosen based on how many a class can have
+    //Check the amount of hp a character can have at level 1 and it then uses the const modifier (Con - 10 / 2 rounded down) to get the HP
+//Use the fake name generator to give a name and average height characteristics to you character (find the csv for the Players Handbook)
 })
 
 client.on('ready', () => {
