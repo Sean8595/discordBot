@@ -199,14 +199,18 @@ client.on('message', (msg) => {
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
             var classNum = Math.floor(Math.random() * 13)
                 console.log(response.data.results[classNum].index);
-                pClass = response.data.results[classNum].index
-                console.log(pClass)
+                var pClass = response.data.results[classNum].index
+                var classArray = [classNum, pClass]
+                console.log(classArray)
+                return classArray
         })
         axios.get("https://www.dnd5eapi.co/api/races/").then(function (response){
             var raceNum = Math.floor(Math.random() * 10)
-            console.log(response.data.results[raceNum].index)
-            pRace = response.data.results[raceNum].index
-            console.log(pRace)
+                console.log(response.data.results[raceNum].index)
+                var pRace = response.data.results[raceNum].index
+                var raceArray = [raceNum, pRace]
+                console.log(raceArray)
+                return raceArray
         })
     }
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
