@@ -198,7 +198,7 @@ client.on('message', (msg) => {
     if (command === "newchar") {
         var res = response.data
         axios.get("https://www.dnd5eapi.co/api/classes/").then(function (response) {
-            for (let i = 0; i < res.count; i++) {
+            for (let i = 0; i < res.results.length; i++) {
                 console.log(res.results[1].index);
             }
         })}
