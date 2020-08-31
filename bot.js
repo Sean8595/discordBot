@@ -203,7 +203,7 @@ client.on('message', (msg) => {
                 console.log(pClass)
         })
         axios.get("https://www.dnd5eapi.co/api/races/").then(function (response){
-            console.log(response.data.index)
+            console.log(response.data)
         })
     }
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
