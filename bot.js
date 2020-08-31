@@ -212,8 +212,18 @@ client.on('message', (msg) => {
                 console.log(raceArray)
                 return raceArray
         })
+    function statRoller(modifier){
+        var statTotal = 0
+       for (let index = 0; index < array.length; index++) {
+            singleRoll = Math.floor(Math.random() * 6)
+            console.log(singleRoll)
+            statTotal + singleRoll == statTotal
+       } 
+
     }
+   statRoller("test");
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
+
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
     //ie if a wizard highest to be int and dex, then it asigns the remainder randomly
 //those are assigned and placed into an array
@@ -225,6 +235,7 @@ client.on('message', (msg) => {
     //Put in spells again randomly chosen based on how many a class can have
     //Check the amount of hp a character can have at level 1 and it then uses the const modifier (Con - 10 / 2 rounded down) to get the HP
 //Use the fake name generator to give a name and average height characteristics to you character (find the csv for the Players Handbook)
+    }
 })
 
 client.on('ready', () => {
