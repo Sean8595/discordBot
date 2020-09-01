@@ -214,12 +214,13 @@ client.on('message', (msg) => {
         })
     function statRoller(modifier){
         var statTotal = 0
-       for (let index = 0; index < 6; index++) {
+       for (let index = 0; index < 4; index++) {
             singleRoll = Math.floor(Math.random() * 6 + 1)
             console.log(singleRoll)
             statTotal + singleRoll == statTotal
+            return statTotal
        } 
-
+       console.log(statTotal)
     }
    statRoller("test");
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
