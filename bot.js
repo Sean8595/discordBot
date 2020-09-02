@@ -219,7 +219,6 @@ client.on('message', (msg) => {
             console.log(singleRoll);
             statTotal = singleRoll + statTotal;
             console.log(statTotal)
-            index++;
        } 
        console.log(statTotal)
     }
