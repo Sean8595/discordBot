@@ -218,14 +218,13 @@ client.on('message', (msg) => {
 ////////Getting Stats 4d6 minus lowest number added together
         ///Removes the smallest number
     function removeSmallest(numbers) {
-        var smallestNumberKEY = 0;
-        for (var i = 0; i < numbers.length - 1; i++) {
-            if (numbers[i + 1] < numbers[i]) {
-                smallestNumberKEY = i + 1;
-                numbers.splice(smallestNumberKEY, 1);
-              }
+        lowestValue = Math.min(numbers)
+        for(var i = numbers.length - 1; i >= 0; i--) {
+            if(array[i] === lowestValue) {
+                array.splice(i, 1);
             }
-            return numbers;
+            return numbers
+        }
           }
         ///Rolls the stats
     function statRoller(modifier){
@@ -250,8 +249,8 @@ client.on('message', (msg) => {
         return pStats
     }
 var pStats = playerStats()
-console.log(pStats);
-
+// console.log(pStats);
+console.log(removeSmallest([1, 2, 1, 3]))
 
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
