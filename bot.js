@@ -230,7 +230,7 @@ client.on('message', (msg) => {
         ///Rolls the stats
     function statRoller(modifier){
         var statTotal = []
-       for (let index = 0; index <= 3; index++) {
+       for (let i = 0; i <= 3; i++) {
             singleRoll = Math.floor(Math.random() * 6 + 1);
             statTotal.push(singleRoll)
        } 
