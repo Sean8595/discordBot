@@ -232,11 +232,8 @@ client.on('message', (msg) => {
        } 
        return statTotal
     }
-   statRoller("test");
 
-   var STAT = removeSmallest(statTotal)
-   
-   console.log(STAT)
+   console.log(removeSmallest(statRoller("test")))
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
