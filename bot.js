@@ -219,8 +219,10 @@ client.on('message', (msg) => {
         ///Removes the smallest number
     function removeSmallest(numbers) {
         lowestValue = Math.min(numbers)
+        console.log(lowestValue)
         for(var i = numbers.length - 1; i >= 0; i--) {
             if(numbers[i] === lowestValue) {
+                console.log(numbers[i])
                 numbers.splice(i, 1);
             }
             return numbers
