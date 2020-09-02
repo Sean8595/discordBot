@@ -253,7 +253,7 @@ client.on('message', (msg) => {
 var pStats = playerStats()
 // console.log(pStats);
 array1 = [1, 2, 1, 3]
-console.log(removeSmallest(array1))
+console.log(removeSmallest(...array1))
 
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
