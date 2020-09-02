@@ -218,7 +218,7 @@ client.on('message', (msg) => {
 ////////Getting Stats 4d6 minus lowest number added together
         ///Removes the smallest number
     function removeSmallest(numbers) {
-        lowestValue = Math.min(numbers)
+        lowestValue = Math.min(...numbers)
         console.log(lowestValue)
         for(var i = numbers.length - 1; i >= 0; i--) {
             if(numbers[i] === lowestValue) {
