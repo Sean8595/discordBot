@@ -212,6 +212,8 @@ client.on('message', (msg) => {
                 console.log(raceArray)
                 return raceArray
         })
+////////Getting Stats 4d6 minus lowest number added together
+        ///Removes the smallest number
     function removeSmallest(numbers) {
         var smallestNumberKEY = 0;
         for (var i = 0; i < numbers.length - 1; i++) {
@@ -222,6 +224,7 @@ client.on('message', (msg) => {
             }
             return numbers;
           }
+        ///Rolls the stats
     function statRoller(modifier){
         var statTotal = []
        for (let index = 0; index <= 3; index++) {
@@ -232,8 +235,17 @@ client.on('message', (msg) => {
        } 
        return statTotal
     }
+    ///The function that uses the two above functions together
+    function playerStats(){
+        pStats = [];
+        for (let i = 0; i < 10; i++) {
+            var currentStat = removeSmallest(statRoller("test"));
+            pStats.push(currentStat)
+        }
+        return pStats
+    }
+console.log(playerStats());
 
-   console.log(removeSmallest(statRoller("test")))
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
