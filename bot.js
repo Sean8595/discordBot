@@ -213,11 +213,11 @@ client.on('message', (msg) => {
                 return raceArray
         })
     function statRoller(modifier){
-        var statTotal = 0
+        var statTotal = []
        for (let index = 0; index <= 4; index++) {
             singleRoll = Math.floor(Math.random() * 6 + 1);
             console.log(singleRoll);
-            statTotal = singleRoll + statTotal;
+            statTotal.push(singleRoll)
             console.log(statTotal)
        } 
        console.log(statTotal)
