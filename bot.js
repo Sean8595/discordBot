@@ -229,9 +229,7 @@ client.on('message', (msg) => {
         var statTotal = []
        for (let index = 0; index <= 3; index++) {
             singleRoll = Math.floor(Math.random() * 6 + 1);
-            console.log(singleRoll);
             statTotal.push(singleRoll)
-            console.log(statTotal)
        } 
        return statTotal
     }
@@ -244,7 +242,8 @@ client.on('message', (msg) => {
         }
         return pStats
     }
-console.log(playerStats());
+var pStats = playerStats()
+console.log(pStats);
 
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 
