@@ -212,6 +212,9 @@ client.on('message', (msg) => {
                 console.log(raceArray)
                 return raceArray
         })
+
+//Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
+
 ////////Getting Stats 4d6 minus lowest number added together
         ///Removes the smallest number
     function removeSmallest(numbers) {
@@ -238,6 +241,7 @@ client.on('message', (msg) => {
         pStats = [];
         for (let i = 0; i < 10; i++) {
             var currentStat = removeSmallest(statRoller("test"));
+            currentStat.reduce((a, b) => a + b, 0)
             pStats.push(currentStat)
         }
         return pStats
@@ -245,7 +249,7 @@ client.on('message', (msg) => {
 var pStats = playerStats()
 console.log(pStats);
 
-//Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
+
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
     //ie if a wizard highest to be int and dex, then it asigns the remainder randomly
