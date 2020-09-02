@@ -220,8 +220,8 @@ client.on('message', (msg) => {
     function removeSmallest(numbers) {
         lowestValue = Math.min(numbers)
         for(var i = numbers.length - 1; i >= 0; i--) {
-            if(array[i] === lowestValue) {
-                array.splice(i, 1);
+            if(numbers[i] === lowestValue) {
+                numbers.splice(i, 1);
             }
             return numbers
         }
