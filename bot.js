@@ -241,7 +241,10 @@ client.on('message', (msg) => {
         pStats = [];
         for (let i = 0; i < 10; i++) {
             var currentStat = removeSmallest(statRoller("test"));
-            currentStat.reduce((a, b) => a + b, 0)
+            currentStat.reduce(function(a, b)
+            {
+                return a + b
+            }, 0);
             pStats.push(currentStat)
         }
         return pStats
