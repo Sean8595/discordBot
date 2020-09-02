@@ -212,17 +212,31 @@ client.on('message', (msg) => {
                 console.log(raceArray)
                 return raceArray
         })
+    function removeSmallest(numbers) {
+        var smallestNumberKEY = 0;
+        for (var i = 0; i < numbers.length - 1; i++) {
+            if (numbers[i + 1] < numbers[i]) {
+                smallestNumberKEY = i + 1;
+                numbers.splice(smallestNumberKEY, 1);
+              }
+            }
+            return numbers;
+          }
     function statRoller(modifier){
         var statTotal = []
-       for (let index = 0; index <= 4; index++) {
+       for (let index = 0; index <= 3; index++) {
             singleRoll = Math.floor(Math.random() * 6 + 1);
             console.log(singleRoll);
             statTotal.push(singleRoll)
             console.log(statTotal)
        } 
-       console.log(statTotal)
+       return statTotal
     }
    statRoller("test");
+
+   var STAT = removeSmallest(statTotal)
+   
+   console.log(STAT)
 //Then it rolls stats, 4d6 drop the lowest 5 times and puts them into an array
 
 //then it looks at the class and assigns the two higest numbers to the two most important stats to the character
