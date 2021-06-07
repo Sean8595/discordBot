@@ -151,11 +151,11 @@ async function execute(message, serverQueue) {
 //   };
 //   if (!serverQueue) {
 
-}else {
- serverQueue.songs.push(song);
- console.log(serverQueue.songs);
- return message.channel.send(`${song.title} has been added to the queue!`);
-}
+// }else {
+//  serverQueue.songs.push(song);
+//  console.log(serverQueue.songs);
+//  return message.channel.send(`${song.title} has been added to the queue!`);
+// }
 // Creating the contract for our queue
 const queueContruct = {
     textChannel: message.channel,
