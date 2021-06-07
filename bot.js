@@ -144,12 +144,12 @@ async function execute(message, serverQueue) {
       );
     }
   }
-  const songInfo = await ytdl.getInfo(args[1]);
-  const song = {
-      title: songInfo.videoDetails.title,
-      url: songInfo.videoDetails.video_url,
-  };
-  if (!serverQueue) {
+//   const songInfo = await ytdl.getInfo(args[1]);
+//   const song = {
+//       title: songInfo.videoDetails.title,
+//       url: songInfo.videoDetails.video_url,
+//   };
+//   if (!serverQueue) {
 
 }else {
  serverQueue.songs.push(song);
