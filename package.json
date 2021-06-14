@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Sean8595/discordBot#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.5.3",
     "axios": "^0.20.0",
     "discord.js": "^11.6.4",
     "dotenv": "^8.2.0",
